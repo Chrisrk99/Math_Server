@@ -38,7 +38,7 @@ def main():
     reset_counts(server_address)  # Reset counts before starting new tests
     operations = ['magicAdd', 'magicSubtract', 'magicFindMin', 'magicFindMax']
     with ThreadPoolExecutor(max_workers=10) as executor:
-        futures = [executor.submit(make_request, server_address, random.choice(operations)) for _ in range(100)]
+        futures = [executor.submit(make_request, server_address, random.choice(operations)) for _ in range(1000)]
         for future in futures:
             try:
                 future.result()
